@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css?v=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div style="text-align: center; ">
+      <h2 class="name" style="display: none;">Hey, Nancy Mancio Lastra</h2>
+      <h1 class="love" style="display: none;">I LOVE YOU</h1>
+      <h5 class="from" style="display: none;">From: Makier | Mark Allan Carba</h5>
+    </div>
+   
+    <div class="button-wrapper">
+      <button class="confetti-button">CLICK ME 🎉</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+      document.getElementsByClassName("confetti-button")[0].addEventListener("click", () => {
+        
+        $(".confetti-button").hide();
+        $("#showMessage").fadeIn();
+        $(".name").delay(1000).fadeIn(2000);
+        $(".love").delay(6000).fadeIn(5000);
+        $(".from").delay(9000).fadeIn(3000);
+    setInterval(myFunction, 6500);
+       
+      });
+
+      // Function to be executed
+    function myFunction() {
+      // Code to be executed at the specified interval
+      var end = Date.now() + (15 * 1000);
+
+      // go Buckeyes!
+      var colors = ['#bb0000', '#ffffff'];
+
+      (function frame() {
+        confetti({
+          particleCount: 2,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 2,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
+    
+    // Set the interval to 1 second (1000 milliseconds)
+      
+    </script>
+  </body>
+</html>
